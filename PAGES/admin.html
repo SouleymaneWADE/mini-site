@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/admin-style.css" />
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <title>Espace Administratif</title>
+</head>
+
+<body>
+  <section id="sidebar">
+    <a href="#" class="brand">
+      <i class="bx bxs-school"></i>
+      <span class="text">Espace Admin</span>
+    </a>
+    <ul class="side-menu top">
+      <li class="active">
+        <a href="#dashboard"><i class="bx bxs-dashboard"></i> <span>Dashboard</span></a>
+      </li>
+      <li>
+        <a href="#inscrire-etudiant"><i class="bx bxs-user-plus"></i>
+          <span>Inscrire un étudiant</span></a>
+      </li>
+      <li>
+        <a href="#ajouter-formation"><i class="bx bxs-book"></i> <span>Ajouter une formation</span></a>
+      </li>
+      <li>
+        <a href="#ajouter-notes"><i class="bx bxs-edit"></i> <span>Ajouter des notes</span></a>
+      </li>
+      <li>
+        <a href="#voir-etudiants"><i class="bx bxs-group"></i> <span>Voir étudiants</span></a>
+      </li>
+      <li>
+        <a href="#voir-etudiants-formation"><i class="bx bxs-graduation"></i>
+          <span>Voir étudiants par formation</span></a>
+      </li>
+      <li>
+        <a href="#voir-notes"><i class="bx bxs-bar-chart-alt-2"></i>
+          <span>Voir notes d’un étudiant</span></a>
+      </li>
+      <li>
+        <a href="#modifier-etudiant"><i class="bx bxs-user-detail"></i>
+          <span>Modifier étudiant</span></a>
+      </li>
+      <li>
+        <a href="#modifier-notes"><i class="bx bxs-pencil"></i> <span>Modifier notes</span></a>
+      </li>
+      <li>
+        <a href="../index.php" class="logout">
+          <i class="bx bxs-log-out-circle"></i>
+          <span class="text">Deconnexion</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="content">
+    <nav>
+      <i class="bx bx-menu"></i>
+      <a href="#" class="nav-link">MENU</a>
+      <form>
+        <div class="form-input">
+          <input type="search" placeholder="Rechercher..." /><button type="submit">
+            <i class="bx bx-search"></i>
+          </button>
+        </div>
+      </form>
+      <input type="checkbox" id="switch-mode" hidden />
+      <label for="switch-mode" class="switch-mode"></label>
+      <a href="#" class="notification"><i class="bx bxs-bell"></i><span class="num">5</span></a>
+      <a href="#" class="profile"><img src="img/admin.png" /></a>
+    </nav>
+
+    <main>
+      <div class="head-title" id="dashboard">
+        <h1>Tableau de bord</h1>
+      </div>
+
+      <ul class="box-info">
+        <li>
+          <i class="bx bxs-group"></i><span class="text">
+            <h3>5</h3>
+            <p>Étudiants inscrits</p>
+          </span>
+        </li>
+        <li>
+          <i class="bx bxs-book"></i><span class="text">
+            <h3>5</h3>
+            <p>Formations proposées</p>
+          </span>
+        </li>
+        <li>
+          <i class="bx bxs-graduation"></i><span class="text">
+            <h3>100%</h3>
+            <p>Moyenne générale</p>
+          </span>
+        </li>
+      </ul>
+      <!-- Inscrire un étudiant -->
+      <div class="container-admin" id="inscrire-etudiant">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/inscriptionetudiant.php" method="POST">
+            <h1>Inscription Étudiant</h1>
+            <div class="input-box">
+              <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+            </div>
+            <div class="input-box">
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+            </div>
+            <div class="input-box">
+              <input type="text" id="ine" name="ine" placeholder="Votre INE" required />
+            </div>
+            <div class="input-box">
+              <input type="email" id="email" name="email" placeholder="Votre email" required />
+            </div>
+            <div class="input-box">
+              <select id="formation" name="formation" required>
+                <option value="">Sélectionnez votre formation</option>
+                <option value="mic">MIC</option>
+                <option value="ida">IDA</option>
+                <option value="agn">AGN</option>
+                <option value="cd">CD</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Inscrire</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Inscrire Etudiant</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ajouter une formation -->
+      <div class="container-admin" id="ajouter-formation">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/ajoutformation.php" method="POST">
+            <h1>Ajouter Formation</h1>
+            <div class="input-box">
+              <input type="text" id="titre" name="titre" placeholder="Titre Formation" required />
+            </div>
+            <div class="input-box">
+              <input type="text" id="presentation" name="presentation" placeholder="Présentation Formation" required />
+            </div>
+            <div class="input-box">
+              <textarea name="modules" id="modules" placeholder="Modules (séparés par des virgules)"
+                required></textarea>
+            </div>
+            <button type="submit" class="btn">Ajouter</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Ajouter Formation</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ajouter des notes -->
+      <div class="container-admin" id="ajouter-notes">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/ajoutnote.php" method="POST">
+            <h1>Ajouter Notes</h1>
+            <div class="input-box">
+              <input type="text" id="ine" name="ine" placeholder="INE Étudiant" required />
+            </div>
+            <div class="input-box">
+              <input type="text" id="formation" name="formation" placeholder="Formation" required />
+            </div>
+            <div class="input-box">
+              <input type="number" id="note" name="note" placeholder="Note" required />
+            </div>
+            <button type="submit" class="btn">Ajouter</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Ajouter des notes</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voir les étudiants inscrits -->
+      <div class="container-admin" id="voir-etudiants">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/etudiantsinscrits.php" method="GET">
+            <h1>Étudiants Inscrits</h1>
+            <div class="input-box">
+              <button type="submit" class="btn">Afficher la liste</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="table-container">
+          <?php include '../PHP/etudiantsinscrits.php'; ?>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Étudiants inscrits</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voir les étudiants d'une formation -->
+      <div class="container-admin" id="voir-etudiants-formation">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/etudiantsformation.php" method="POST">
+            <h1>Étudiants Formation</h1>
+            <div class="input-box">
+              <input type="text" id="titre" name="titre" placeholder="Formation" required />
+            </div>
+            <button type="submit" class="btn">Afficher</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Etudiants Formation</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voir les notes d'un étudiant -->
+      <div class="container-admin" id="voir-notes">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/etudiantnotes.php" method="POST">
+            <h1>Voir les Notes</h1>
+            <div class="input-box">
+              <input type="text" id="ine" name="ine" placeholder="INE Étudiant" required />
+            </div>
+            <button type="submit" class="btn">Afficher</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Voir les notes</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modifier les informations d'un étudiant -->
+      <div class="container-admin" id="modifier-etudiant">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/etudiantmodifier.php" method="POST">
+            <h1>Modifier Étudiant</h1>
+            <div class="input-box">
+              <input type="text" id="ine" name="ine" placeholder="INE" required />
+            </div>
+            <div class="input-box">
+              <input type="text" id="nom" name="nom" placeholder="Nouveau Nom" />
+            </div>
+            <div class="input-box">
+              <input type="text" id="prenom" name="prenom" placeholder="Nouveau Prénom" />
+            </div>
+            <div class="input-box">
+              <input type="email" id="email" name="email" placeholder="Nouvel Email" />
+            </div>
+            <button type="submit" class="btn">Modifier</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Modifier informations</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modifier les notes d'un étudiant -->
+      <div class="container-admin" id="modifier-notes">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/modifiernotes.php" method="POST">
+            <h1>Modifier Notes</h1>
+            <div class="input-box">
+              <input type="text" id="ine" name="ine" placeholder="INE" required />
+            </div>
+            <div class="input-box">
+              <input type="text" id="formation" name="formation" placeholder="Formation" required />
+            </div>
+            <div class="input-box">
+              <input type="number" id="nouvelle-note" name="nouvelle-note" placeholder="Nouvelle Note" required />
+            </div>
+            <button type="submit" class="btn">Modifier</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Modifier les notes</h2>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script src="../JS/main.js"></script>
+  <script src="../JS/script.js"></script>
+</body>
+
+</html>

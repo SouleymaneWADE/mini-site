@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/admin-style.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <title>Espace Estudiantine</title>
+</head>
+
+<body>
+  <section id="sidebar">
+    <a href="#" class="brand">
+      <i class="bx bxs-school"></i>
+      <span class="text">Espace Etudiant</span>
+    </a>
+    <ul class="side-menu top">
+      <li class="active">
+        <a href="#dashboard"><i class="bx bxs-dashboard"></i> <span>Dashboard</span></a>
+      </li>
+      <li>
+        <a href="#voir-notes"><i class="bx bxs-bar-chart-alt-2"></i>
+          <span>Voir mes notes</span></a>
+      </li>
+      <li>
+        <a href="#informations-administratives"><i class="bx bxs-user-detail"></i>
+          <span>Informations Administratives</span></a>
+      </li>
+      <li>
+        <a href="#modifier-password"><i class="bx bxs-key"></i>
+          <span>Modifier Mot de Passe</span></a>
+      </li>
+      <li>
+        <a href="../index.php" class="logout">
+          <i class="bx bxs-log-out-circle"></i>
+          <span class="text">Deconnexion</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="content">
+    <nav>
+      <i class="bx bx-menu"></i>
+      <a href="#" class="nav-link">MENU</a>
+      <form>
+        <div class="form-input">
+          <input type="search" placeholder="Rechercher..." /><button type="submit">
+            <i class="bx bx-search"></i>
+          </button>
+        </div>
+      </form>
+      <input type="checkbox" id="switch-mode" hidden />
+      <label for="switch-mode" class="switch-mode"></label>
+      <a href="#" class="notification"><i class="bx bxs-bell"></i><span class="num">5</span></a>
+      <a href="#" class="profile"><img src="img/admin.png" /></a>
+    </nav>
+
+    <main>
+      <div class="container-admin" id="voir-notes">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/etudiantnotes.php" method="POST">
+            <h1>Voir mes Notes</h1>
+            <div class="input-box">
+              <input type="text" id="ine" name="ine" placeholder="INE Étudiant" required />
+            </div>
+            <button type="submit" class="btn">Afficher</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Voir les notes</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-admin" id="informations-administratives">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/etudiantinfos.php" method="POST">
+            <h1>Voir mes Informations Administratives</h1>
+            <div class="input-box">
+              <input type="text" id="ine" name="ine" placeholder="INE Étudiant" required />
+            </div>
+            <button type="submit" class="btn">Afficher</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Informations Administratives</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-admin" id="modifier-password">
+        <div class="form-box-admin connexion">
+          <form action="../PHP/modifierpassword.php" method="POST">
+            <h1>Modifier mon Mot de Passe</h1>
+            <div class="input-box">
+              <input type="password" id="password" name="password" placeholder="Ancien Mot de Passe" required />
+            </div>
+            <div class="input-box">
+              <input type="password" id="password" name="password" placeholder="Nouveau Mot de Passe" required />
+            </div>
+            <button type="submit" class="btn">Modifier</button>
+          </form>
+        </div>
+
+        <div class="toggle-box-admin">
+          <div class="toggle-panel toggle-left">
+            <h2>Modifier le mot de passe</h2>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script src="../JS/main.js"></script>
+  <script src="../JS/script.js"></script>
+</body>
+
+</html>
